@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package>
+  <name>shared_serial</name>
+  <version>0.1.1</version>
+  <description>Shared serial port with locking functionality</description>
+  <maintainer email="w.caarls@tudelft.nl">Wouter Caarls</maintainer>
+  <license>BSD</license>
+  <url type="website">http://ros.org/wiki/shared_serial</url>
+  <author email="w.caarls@tudelft.nl">Wouter Caarls</author>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>message_generation</build_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>message_runtime</run_depend>
+</package>
