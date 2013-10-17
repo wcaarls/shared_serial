@@ -1,0 +1,28 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+\b shared_serial implements locking serial communications services.
+
+<!-- 
+Provide an overview of your package.
+-->
+
+
+\section codeapi Code API
+
+The client API is a single class, called SerialClient. You can also use the messages and services defined in the <a href="index-msg.html">message and service documentation</a>.
+
+<!--
+Provide links to specific auto-generated API documentation within your
+package that is of particular interest to a reader. Doxygen will
+document pretty much every part of your code, so do your best here to
+point the reader to the actual API.
+
+If your codebase is fairly large or has different sets of APIs, you
+should use the doxygen 'group' tag to keep these APIs together. For
+example, the roscpp documentation has 'libros' group.
+-->
+
+
+*/
