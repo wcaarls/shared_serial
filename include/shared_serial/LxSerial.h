@@ -21,6 +21,12 @@
 
 #define INVALID_DEVICE_HANDLE		-1
 
+#ifdef __APPLE__
+	#ifndef IOSSIOSPEED
+		#define IOSSIOSPEED    _IOW('T', 2, speed_t)
+	#endif
+#endif
+
 class LxSerial
 {
 	public:
@@ -30,6 +36,39 @@ class LxSerial
 							RS485_SMSC,												// SMSC SCH311X RS-485 mode (Versalogic Sidewinder board)
 							TCP
 		};
+#ifdef __APPLE__
+		enum PortSpeed { 	S50			=	50,									// Baudrate to use for the port --> see termios.h
+							S75			=	75,
+							S110		=	110,
+							S134		=	134,
+							S150		=	150,
+							S200		=	200,
+							S300		=	300,
+							S600		=	600,
+							S1200		=	1200,
+							S1800		=	1800,
+							S2400		=	2400,
+							S4800		=	4800,
+							S9600		=	9600,
+							S19200		=	19200,
+							S38400		=	38400,
+							S57600  	=	57600,
+							S115200 	=	115200,
+							S230400 	=	230400,
+							S460800 	=	460800,
+							S500000 	=	500000,
+							S576000 	=	576000,
+							S921600 	=	921600,
+							S1000000	=	1000000,
+							S1152000	=	1152000,
+							S1500000	=	1500000,
+							S2000000	=	2000000,
+							S2500000	=	2500000,
+							S3000000	=	3000000,
+							S3500000	=	3500000,
+							S4000000	=	4000000
+		};
+#elif
 		enum PortSpeed { 	S50			=	B50,									// Baudrate to use for the port --> see termios.h
 							S75			=	B75,
 							S110		=	B110,
@@ -61,6 +100,7 @@ class LxSerial
 							S3500000	=	B3500000,
 							S4000000	=	B4000000
 		};
+#endif
 		/*return values*/
 		static const int READ_ERROR 				=	-1;
 		static const int COLLISION_DETECT_ERROR		=	-2;

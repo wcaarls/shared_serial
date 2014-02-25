@@ -15,7 +15,12 @@
 #include <netinet/in.h>
 #include <netdb.h>
 #include <poll.h>
+
+#ifdef __APPLE__
+#include <architecture/byte_order.h>
+#elif
 #include <endian.h>
+#endif
 
 #include "shared_serial/LxSerial.h"
 
@@ -219,6 +224,14 @@ bool	LxSerial::set_speed( LxSerial::PortSpeed baudrate )
 	if (b_socket)
 		return false;
 
+#ifdef __APPLE__
+	int speed = baudrate;
+	if ( ioctl( hPort, IOSSIOSPEED, &speed ) == -1 )
+	{
+		perror("Error: Could not set serial port baudrate");
+		return false;
+	}
+#elif
 	cfsetispeed(&options, baudrate);								//set incoming baud rate
 	cfsetospeed(&options, baudrate);								//set outgoing baud rate
 
@@ -228,6 +241,7 @@ bool	LxSerial::set_speed( LxSerial::PortSpeed baudrate )
 	}
 	usleep(100);													// additional wait for correct functionality
 	tcflush(hPort, TCIOFLUSH);										// flush terminal data
+#endif
 	return true;
 }
 
