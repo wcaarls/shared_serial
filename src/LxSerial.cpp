@@ -231,7 +231,7 @@ bool	LxSerial::set_speed( LxSerial::PortSpeed baudrate )
 		perror("Error: Could not set serial port baudrate");
 		return false;
 	}
-#elif
+#else
 	cfsetispeed(&options, baudrate);								//set incoming baud rate
 	cfsetospeed(&options, baudrate);								//set outgoing baud rate
 
