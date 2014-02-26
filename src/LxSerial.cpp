@@ -18,7 +18,7 @@
 
 #ifdef __APPLE__
 #include <architecture/byte_order.h>
-#elif
+#else
 #include <endian.h>
 #endif
 

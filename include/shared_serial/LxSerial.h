@@ -68,7 +68,7 @@ class LxSerial
 							S3500000	=	3500000,
 							S4000000	=	4000000
 		};
-#elif
+#else
 		enum PortSpeed { 	S50			=	B50,									// Baudrate to use for the port --> see termios.h
 							S75			=	B75,
 							S110		=	B110,
