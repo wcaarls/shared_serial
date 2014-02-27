@@ -116,7 +116,7 @@ bool LxSerial::port_open(const std::string& portname, LxSerial::PortType port_ty
 	else
 	{
 		// Open port
-		hPort = open(portname.c_str(), O_RDWR | O_NOCTTY);//|O_NDELAY);						// open the serial device
+		hPort = open(portname.c_str(), O_RDWR | O_NOCTTY | O_NDELAY);						// open the serial device
 																				// O_RDWR = open read an write
 																				// The O_NOCTTY flag tells UNIX that this program doesn't want to be the "controlling terminal" for that 
 																				// port. If you don't specify this then any input (such as keyboard abort signals and so forth) will affect 
