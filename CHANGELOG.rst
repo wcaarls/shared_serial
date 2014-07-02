@@ -2,6 +2,10 @@
 Changelog for package shared_serial
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.2.1 (2014-07-02)
+------------------
+* OSX Compatibility (Hans Gaiser)
+
 0.2.0 (2013-09-23)
 ------------------
 * Added catkinized shared_serial package
